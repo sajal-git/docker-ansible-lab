@@ -16,7 +16,7 @@ ___
 | **Containers** | **Role** |
 | :---: | --- |
 | Ansible Server | Pre-configured ansible server with linking and ssh enabled to nodes | 
-| Node x | SSH and Python pre-configured, ready to be accept connection from ansible server |
+| Node x | SSH and Python pre-configured, ready to accept connection from ansible server |
 ___
 
 ### Usage
