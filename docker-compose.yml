@@ -1,0 +1,50 @@
+# docker-compose file for ansible server and required no of nodes
+
+version: '3'
+services:
+
+  ansible:
+    build:
+      context: .
+      dockerfile: Dockerfile.ansible
+    image: ansible:server
+    container_name: ansible
+    hostname: ansible
+    depends_on:
+      - node1
+      - node2
+    volumes:
+      - ansible:/etc/ansible
+    networks:
+      - esnet
+    entrypoint:
+      - "/bin/bash"
+    tty: true
+    stdin_open: true
+
+  node1:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    image: node:client
+    container_name: node1
+    hostname: node1
+    networks:
+      - esnet
+
+  node2:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    image: node:client
+    container_name: node2
+    hostname: node2
+    networks:
+      - esnet
+
+volumes:
+  ansible:
+    driver: local
+
+networks:
+  esnet:

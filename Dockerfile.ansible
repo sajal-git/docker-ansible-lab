@@ -1,0 +1,14 @@
+# Base Image
+FROM ubuntu:16.04
+
+# Copying SSH key pair 
+COPY keys/server.pub /root/.ssh/id_rsa.pub
+COPY keys/server /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+
+# Copying Package Installation Script
+COPY scripts/setupansible.sh /setupansible.sh
+RUN chmod +x /setupansible.sh
+
+# Installing Packages
+RUN bash /setupansible.sh
