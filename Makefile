@@ -4,6 +4,9 @@ build-ansible:
 build-node:
 	docker build -t node:client -f Dockerfile.node .
 	
+build-node-centos:
+	docker build -t node:centos -f Dockerfile.node.centos .
+	
 build-all:
 	make build-ansible
 	make build-node

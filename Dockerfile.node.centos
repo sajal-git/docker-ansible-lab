@@ -1,0 +1,16 @@
+# Base Image
+FROM centos:6.8
+
+# Copying Ansible Server pub key in Auth Keys
+COPY keys/server.pub /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
+
+# Copying Package Installation Script
+COPY scripts/setupnode_centos.sh /setupnode.sh
+RUN chmod +x /setupnode.sh
+
+# Installing Packages
+RUN bash /setupnode.sh
+
+# Running SSHD service
+CMD ["/usr/sbin/sshd", "-D"]

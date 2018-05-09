@@ -42,6 +42,16 @@ services:
     networks:
       - esnet
 
+  node3:
+    build:
+      context: .
+      dockerfile: Dockerfile.node.centos
+    image: node:centos
+    container_name: node3
+    hostname: node3
+    networks:
+      - esnet
+
 volumes:
   ansible:
     driver: local
