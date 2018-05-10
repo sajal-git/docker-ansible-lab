@@ -11,6 +11,7 @@ RUN chmod +x /setupnode.sh
 
 # Installing Packages
 RUN bash /setupnode.sh
+RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' 
 
 # Running SSHD service
 CMD ["/usr/sbin/sshd", "-D"]
