@@ -10,9 +10,6 @@ services:
     image: ansible:server
     container_name: ansible
     hostname: ansible
-    depends_on:
-      - node1
-      - node2
     volumes:
       - ansible:/etc/ansible
     networks:
