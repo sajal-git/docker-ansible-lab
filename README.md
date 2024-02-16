@@ -23,6 +23,7 @@ ___
 
 * Install required packages
 * Clone the repository
+* Create keys directory and add pub & pvt keys
 * Choose any of the method below to run the lab (I prefer compose)
 ___
 #### 1. via Makefile
